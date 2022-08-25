@@ -55,3 +55,19 @@
   cursor: pointer;
   margin-top: 20px;
 }
+
+.paymentMethods {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.payButton {
+  padding: 10px 5px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  background-color: #fff;
+  color: teal;
+  font-weight: bold;
+  border: none;
+}
