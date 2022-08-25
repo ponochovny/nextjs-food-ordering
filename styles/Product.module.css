@@ -1,12 +1,10 @@
 .container {
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   display: flex;
-
 }
 
 .left {
   flex: 1;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -20,6 +18,7 @@
 .imgContainer {
   width: 80%;
   height: 80%;
+  max-height: calc(100vh - 100px);
   position: relative;
 }
 
