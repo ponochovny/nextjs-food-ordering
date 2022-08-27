@@ -96,7 +96,19 @@ const Product = ({ pizza }) => {
 }
 
 export const getServerSideProps = async ({ params }) => {
-	const res = await axios.get(`http://localhost:3000/api/products/${params.id}`)
+	let res
+
+	try {
+		res = await axios.get(`http://localhost:3000/api/products/${params.id}`)
+	} catch (error) {
+		console.log('HERE 1 error')
+		return {
+			props: {
+				pizza: {},
+			},
+		}
+	}
+
 	return {
 		props: {
 			pizza: res.data,

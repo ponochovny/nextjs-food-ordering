@@ -126,8 +126,21 @@ export const getServerSideProps = async (ctx) => {
 		}
 	}
 
-	const productRes = await axios.get('http://localhost:3000/api/products')
-	const orderRes = await axios.get('http://localhost:3000/api/orders')
+	let productRes
+	let orderRes
+
+	try {
+		productRes = await axios.get('http://localhost:3000/api/products')
+		orderRes = await axios.get('http://localhost:3000/api/orders')
+	} catch (error) {
+		console.log('HERE 2 error')
+		return {
+			props: {
+				orders: [],
+				products: [],
+			},
+		}
+	}
 
 	return {
 		props: {
