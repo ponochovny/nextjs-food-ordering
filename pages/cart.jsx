@@ -28,6 +28,10 @@ const Cart = () => {
 
 	if (!mounted) return null
 
+	const closeOrderDetails = () => {
+		setCash(false)
+	}
+
 	const createOrder = async (data) => {
 		try {
 			const res = await axios.post(
@@ -104,6 +108,7 @@ const Cart = () => {
 				CASH ONDELIVERY
 			</button>
 			<PayPalScriptProvider
+				deferLoading={true}
 				options={{
 					'client-id':
 						'AdNpnO4DmS-7465ag2e31aebdSrm3N0MokxLKFOW6YCB6WeIXQP_EK5rgraxQsRRx738HKtHCfiDFJtP',
@@ -149,6 +154,7 @@ const Cart = () => {
 								</td>
 								<td>
 									<span className={styles.extras}>
+										{product.extras.length === 0 && '-'}
 										{product.extras.map((extra, i) => {
 											const ending =
 												product.extras.length - 1 === i ? '.' : ', '
@@ -198,7 +204,13 @@ const Cart = () => {
 					)}
 				</div>
 			</div>
-			{cash && <OrderDetails total={cart.total} createOrder={createOrder} />}
+			{cash && (
+				<OrderDetails
+					total={cart.total}
+					createOrder={createOrder}
+					close={closeOrderDetails}
+				/>
+			)}
 		</div>
 	)
 }

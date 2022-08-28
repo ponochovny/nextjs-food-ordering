@@ -30,7 +30,12 @@ const Index = ({ orders, products }) => {
 					status: currentStatus + 1,
 				}
 			)
-			setOrderList([res.data, ...orderList.filter((order) => order._id !== id)])
+
+			const tempArr = orderList
+			const index = tempArr.findIndex((el) => el._id === id)
+			tempArr[index] = res.data
+
+			setOrderList([...tempArr])
 		} catch (error) {
 			console.log(error)
 		}

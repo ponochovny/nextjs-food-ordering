@@ -115,7 +115,7 @@ const Order = ({ order }) => {
 						<b className={styles.totalTextTitle}>Total:</b>${order.total}
 					</div>
 					<button className={styles.button} disabled>
-						PAID
+						{order.method === 0 ? 'CASH' : 'PAID'}
 					</button>
 				</div>
 			</div>

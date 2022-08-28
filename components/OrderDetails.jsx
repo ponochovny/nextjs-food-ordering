@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from '../styles/OrderDetails.module.css'
 
-const OrderDetails = ({ total, createOrder }) => {
+const OrderDetails = ({ total, createOrder, close }) => {
 	const [customer, setCustomer] = useState('')
 	const [address, setAddress] = useState('')
 
@@ -9,8 +9,15 @@ const OrderDetails = ({ total, createOrder }) => {
 		createOrder({ customer, address, total, method: 0 })
 	}
 
+	const closeHere = (e) => {
+		e.preventDefault()
+		if (e.target === e.currentTarget) {
+			close()
+		}
+	}
+
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} onClick={closeHere}>
 			<div className={styles.wrapper}>
 				<h1 className={styles.title}>You will pay $12 after delivery.</h1>
 				<div className={styles.item}>
