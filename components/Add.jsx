@@ -44,7 +44,7 @@ const Add = ({ setClose }) => {
 			}
 
 			await axios.post(
-				'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/products',
+				'https://food-ordering-ponochovny.netlify.app/api/products',
 				newProduct
 			)
 			setClose(true)

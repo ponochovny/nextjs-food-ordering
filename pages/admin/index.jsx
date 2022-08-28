@@ -11,8 +11,7 @@ const Index = ({ orders, products }) => {
 	const handleDelete = async (id) => {
 		try {
 			await axios.delete(
-				'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/products/' +
-					id
+				'https://food-ordering-ponochovny.netlify.app/api/products/' + id
 			)
 			setPizzaList(pizzaList.filter((pizza) => pizza._id !== id))
 		} catch (error) {
@@ -26,8 +25,7 @@ const Index = ({ orders, products }) => {
 
 		try {
 			const res = await axios.put(
-				'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/orders/' +
-					id,
+				'https://food-ordering-ponochovny.netlify.app/api/orders/' + id,
 				{
 					status: currentStatus + 1,
 				}
@@ -134,10 +132,10 @@ export const getServerSideProps = async (ctx) => {
 	}
 
 	const productRes = await axios.get(
-		'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/products'
+		'https://food-ordering-ponochovny.netlify.app/api/products'
 	)
 	const orderRes = await axios.get(
-		'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/orders'
+		'https://food-ordering-ponochovny.netlify.app/api/orders'
 	)
 
 	return {

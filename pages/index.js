@@ -34,7 +34,7 @@ export const getServerSideProps = async (ctx) => {
 	}
 
 	const res = await axios.get(
-		'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/products'
+		'https://food-ordering-ponochovny.netlify.app/api/products'
 	)
 
 	return {
