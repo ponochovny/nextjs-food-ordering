@@ -96,7 +96,9 @@ const Product = ({ pizza }) => {
 }
 
 export const getServerSideProps = async ({ params }) => {
-	const res = await axios.get(`http://localhost:3000/api/products/${params.id}`)
+	const res = await axios.get(
+		`https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/products/${params.id}`
+	)
 
 	return {
 		props: {

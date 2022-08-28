@@ -30,7 +30,10 @@ const Cart = () => {
 
 	const createOrder = async (data) => {
 		try {
-			const res = await axios.post('http://localhost:3000/api/orders', data)
+			const res = await axios.post(
+				'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/orders',
+				data
+			)
 			res.status === 201 && router.push('/orders/' + res.data._id)
 			dispatch(reset())
 		} catch (error) {

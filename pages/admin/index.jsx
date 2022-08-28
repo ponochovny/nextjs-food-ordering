@@ -10,7 +10,10 @@ const Index = ({ orders, products }) => {
 
 	const handleDelete = async (id) => {
 		try {
-			await axios.delete('http://localhost:3000/api/products/' + id)
+			await axios.delete(
+				'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/products/' +
+					id
+			)
 			setPizzaList(pizzaList.filter((pizza) => pizza._id !== id))
 		} catch (error) {
 			console.log(error)
@@ -22,9 +25,13 @@ const Index = ({ orders, products }) => {
 		const currentStatus = item.status
 
 		try {
-			const res = await axios.put('http://localhost:3000/api/orders/' + id, {
-				status: currentStatus + 1,
-			})
+			const res = await axios.put(
+				'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/orders/' +
+					id,
+				{
+					status: currentStatus + 1,
+				}
+			)
 			setOrderList([res.data, ...orderList.filter((order) => order._id !== id)])
 		} catch (error) {
 			console.log(error)
@@ -126,8 +133,12 @@ export const getServerSideProps = async (ctx) => {
 		}
 	}
 
-	const productRes = await axios.get('http://localhost:3000/api/products')
-	const orderRes = await axios.get('http://localhost:3000/api/orders')
+	const productRes = await axios.get(
+		'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/products'
+	)
+	const orderRes = await axios.get(
+		'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/orders'
+	)
 
 	return {
 		props: {

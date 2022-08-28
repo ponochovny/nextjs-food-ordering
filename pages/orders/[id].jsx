@@ -124,7 +124,9 @@ const Order = ({ order }) => {
 }
 
 export const getServerSideProps = async ({ params }) => {
-	const res = await axios.get(`http://localhost:3000/api/orders/${params.id}`)
+	const res = await axios.get(
+		`https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/orders/${params.id}`
+	)
 	return {
 		props: {
 			order: res.data,
