@@ -8,7 +8,9 @@ const handler = async (req, res) => {
 		cookies,
 	} = req
 
-	const token = cookies.tone
+	console.log(cookies)
+
+	const token = cookies.token
 
 	await dbConnect()
 
