@@ -18,8 +18,9 @@ export default async function handler(req, res) {
 	}
 
 	if (method === 'POST') {
+		const text = `token: ${token}, process token: ${process.env.TOKEN}`
 		if (!token || token !== process.env.TOKEN) {
-			return res.status(401).json('Not authenticated!')
+			return res.status(401).json('Not authenticated!' + text)
 		}
 		try {
 			const product = await Product.create(req.body)

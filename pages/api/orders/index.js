@@ -17,8 +17,9 @@ const handler = async (req, res) => {
 		}
 	}
 	if (method === 'POST') {
+		const text = `token: ${token}, process token: ${process.env.TOKEN}`
 		if (!token || token !== process.env.TOKEN) {
-			return res.status(401).json('Not authenticated!')
+			return res.status(401).json('Not authenticated!' + text)
 		}
 		try {
 			const order = await Order.create(req.body)
