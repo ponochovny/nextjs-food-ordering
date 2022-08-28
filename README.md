@@ -2,10 +2,9 @@
 
 Live site - https://food-ordering-ponochovny.netlify.app/
 
-You can choose a product. Apply needed parameters and go over to checkout page. Choose pay method: paypal or cash
-After this step you will get the order page with it's status which will be changed by the admin
+You can choose a product. Apply needed parameters and go over to the checkout page. Choose pay method: paypal or cash After this step you will get the order page with its status which the admin will change.
 
-As the admin you can add/remove products, change order status
+As the admin, you can add or remove products, change an order status
 
 // TODO:
 1. Add modal for editing product
