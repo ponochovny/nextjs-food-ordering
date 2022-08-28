@@ -5,7 +5,10 @@ const handler = async (req, res) => {
 	const {
 		method,
 		query: { id },
+		cookies,
 	} = req
+
+	const token = cookies.tone
 
 	await dbConnect()
 
@@ -18,6 +21,9 @@ const handler = async (req, res) => {
 		}
 	}
 	if (method === 'PUT') {
+		if (!token || token !== process.env.TOKEN) {
+			return res.status(401).json('Not authenticated!')
+		}
 		try {
 			const order = await Order.findByIdAndUpdate(id, req.body, {
 				new: true,
@@ -26,8 +32,6 @@ const handler = async (req, res) => {
 		} catch (error) {
 			res.status(500).json(error)
 		}
-	}
-	if (method === 'DELETE') {
 	}
 }
 
