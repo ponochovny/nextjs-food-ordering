@@ -28,3 +28,8 @@
 .button:last-child {
   background-color: crimson;
 }
+
+.button:last-child:disabled {
+  cursor: not-allowed;
+  background-color: rgb(184, 87, 106);
+}

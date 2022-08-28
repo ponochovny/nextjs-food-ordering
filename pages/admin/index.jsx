@@ -101,11 +101,16 @@ const Index = ({ orders, products }) => {
 								<td>
 									<span>{order.method === 0 ? 'cash' : 'paid'}</span>
 								</td>
-								<td>{status[order.status]}</td>
+								<td>
+									{!status[order.status]
+										? status[status.length - 1]
+										: status[order.status]}
+								</td>
 								<td>
 									<button
 										className={styles.button}
 										onClick={() => handleStatus(order._id)}
+										disabled={order.status >= status.length - 1}
 									>
 										Next stage
 									</button>
