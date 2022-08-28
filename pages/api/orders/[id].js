@@ -23,9 +23,8 @@ const handler = async (req, res) => {
 		}
 	}
 	if (method === 'PUT') {
-		const text = `token: ${token}, process token: ${process.env.TOKEN}`
 		if (!token || token !== process.env.TOKEN) {
-			return res.status(401).json('Not authenticated!' + text)
+			return res.status(401).json('Not authenticated!')
 		}
 		try {
 			const order = await Order.findByIdAndUpdate(id, req.body, {
