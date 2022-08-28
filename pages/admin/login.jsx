@@ -11,10 +11,13 @@ const Login = () => {
 
 	const handleClick = async () => {
 		try {
-			await axios.post('http://localhost:3000/api/login', {
-				username,
-				password,
-			})
+			await axios.post(
+				'https://630afdac94f02807300aa3df--illustrious-malasada-0b0248.netlify.app/api/login',
+				{
+					username,
+					password,
+				}
+			)
 			setError(false)
 			router.push('/admin')
 		} catch (error) {
